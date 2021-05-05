@@ -28,27 +28,23 @@ console.log(pcNumbers);
 
 var arrayUserNumbers = [];
 
-while (arrayUserNumbers.length < 84) {
-    for (var j = 0; j < 5; j++){
-        var userChosenNumber = Number(parseInt(prompt("Inserisci un numero da 1 a 100")));
-        if (userChosenNumber < 1 || userChosenNumber > 100 || userChosenNumber == isNaN) {
-            alert("Devi inserire un numero tra 1 e 100!"); j--
-        } else {
-            arrayUserNumbers.push(userChosenNumber)    
-        }    
+for (var j = 0; j <= 84; j++) {
+    var userChosenNumber = Number(parseInt(prompt("Inserisci un numero da 1 a 100")));
+    while (userChosenNumber < 1 || userChosenNumber > 100 || isNaN(userChosenNumber)) {
+        alert("Devi inserire un numero tra 1 e 100!")
+        userChosenNumber = Number(parseInt(prompt("Inserisci un numero da 1 a 100")));
     }
-}
-console.log(arrayUserNumbers);
-
-/* 
-for (var j = 0; j < 84; j++){
-    if (userChosenNumber < 1 || userChosenNumber == isNaN || userChosenNumber > 100) {
-        alert("Il numero dev'essere compreso tra 1 e 100!!!")
+    if ( !arrayUserNumbers.includes(userChosenNumber)) {
+        if (pcNumbers.includes(userChosenNumber)) {
+            alert("Peccato, hai trovato la mina! Punteggio: " + arrayUserNumbers.length);
+            break;
+        }
+        arrayUserNumbers.push(userChosenNumber);
     } else {
-        arrayUserNumbers.push(userChosenNumber)
+        alert('Hai giá inserito questo numero! ' + arrayUserNumbers);
+        i--;
     }
+    console.log(arrayUserNumbers);
 }
-console.log(arrayUserNumbers);
-
-
- */
+     
+ 
